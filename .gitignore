@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.html
+*.png
+*.csv
+*.txt
+asymmetry_output_*/
+mesh_warp_output_*/
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto

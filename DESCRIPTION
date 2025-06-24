@@ -1,0 +1,21 @@
+Package: GMAsymmetryTools
+Type: Package
+Title: Detect Bilateral Asymmetry and TPS Warp in Geometric Morphometrics
+Version: 0.1.0
+Authors@R: person("Ritwik", "Banerjee", email = "mail.ritwikbanerjee@gmail.com", role = c("aut", "cre"))
+Description: Tools for bilateral asymmetry analysis (2D/3D) and TPS mesh warping in geometric morphometrics.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 4.0)
+Imports:
+    geomorph,
+    dplyr,
+    tidyr,
+    ggplot2,
+    rgl,
+    Rvcg,
+    Morpho,
+    htmlwidgets,
+    tools
+RoxygenNote: 7.3.2
