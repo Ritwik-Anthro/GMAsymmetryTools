@@ -2,30 +2,33 @@
 % Please edit documentation in R/warp_mesh_TPS.R
 \name{warp_mesh_TPS}
 \alias{warp_mesh_TPS}
-\title{Warp Mesh Using TPS}
+\title{Warp Mesh Using Thin Plate Spline (TPS)}
 \usage{
 warp_mesh_TPS(
   source_lm_file,
   target_lm_file,
   mesh_file,
   output_base = "mesh_warp_output",
-  views = c("frontal", "lateral")
+  views = c("frontal", "lateral"),
+  warp_magnitude = 1
 )
 }
 \arguments{
-\item{source_lm_file}{Path to the CSV file with source (reference) landmarks. Must contain X, Y, and Z columns.}
+\item{source_lm_file}{CSV file with source landmarks (columns: X, Y, Z).}
 
-\item{target_lm_file}{Path to the CSV file with target (specimen) landmarks. Must contain X, Y, and Z columns.}
+\item{target_lm_file}{CSV file with target landmarks (columns: X, Y, Z).}
 
-\item{mesh_file}{Path to the mesh file (.ply or .stl) corresponding to the source.}
+\item{mesh_file}{Path to the 3D mesh file (.ply or .stl format).}
 
-\item{output_base}{Base name for the output folder. A timestamp will be appended.}
+\item{output_base}{Optional. Base name for the output directory. Default is "mesh_warp_output".}
 
-\item{views}{Character vector of views to save as PNGs (default: c("frontal", "lateral")).}
+\item{views}{Optional. Vector of view names (e.g., "frontal", "lateral") for image snapshots.}
+
+\item{warp_magnitude}{Optional. Magnification factor for TPS deformation. Default is 1.}
 }
 \value{
-A list containing the output directory and warped mesh object.
+A list containing the output directory path and warped mesh object.
 }
 \description{
-This function warps a mesh from a source landmark configuration to a target configuration using thin-plate spline (TPS) transformation.
+Warps a 3D mesh using TPS from source to target landmarks and saves static and interactive outputs.
 }

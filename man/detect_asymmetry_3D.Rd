@@ -2,18 +2,33 @@
 % Please edit documentation in R/detect_asymmetry_3D.R
 \name{detect_asymmetry_3D}
 \alias{detect_asymmetry_3D}
-\title{Title of the function}
+\title{Detect Bilateral Asymmetry in 3D Landmark Data}
 \usage{
 detect_asymmetry_3D(file_path, output_base = "asymmetry_output")
 }
 \arguments{
-\item{file_path}{Path to input file}
+\item{file_path}{Path to the input CSV file containing 3D landmark data. Required columns:
+\code{Specimen}, \code{Landmark}, \code{Region}, \code{Midline}, \code{Side}, \code{X}, \code{Y}, \code{Z}.}
 
-\item{output_base}{Folder to store output}
+\item{output_base}{Optional base name for the output directory. Default is \code{"asymmetry_output"}.}
 }
 \value{
-A list containing results
+A list with:
+\describe{
+  \item{OutputFolder}{Path to the output directory where results are saved}
+  \item{RegionResults}{A named list for each region containing:
+    \code{MeanShape}, \code{GPA}, \code{Procrustes_ANOVA}, \code{PerSpecimenAsymmetry},
+    \code{Mahalanobis}, and \code{PCA} objects}
+}
 }
 \description{
-Title of the function
+This function performs region-wise bilateral asymmetry analysis on 3D landmark data.
+It includes Procrustes superimposition, PCA, Mahalanobis distances, Procrustes ANOVA,
+and visualization of asymmetry vectors and residuals. Outputs are saved in a timestamped
+folder with region-specific subfolders.
+}
+\details{
+This function mirrors only the non-midline landmarks along the X-axis for the right side.
+It automatically separates landmarks by region and performs shape analysis and asymmetry
+quantification within each region. Interactive 3D plots are saved as HTML widgets.
 }
